@@ -11,13 +11,13 @@ export default function AccountOperations() {
 
     const dispatch = useDispatch();
     const account = useSelector(store => store.account);
-    console.log(account)
-    const { balance, loan, loanPurpose: loanReason } = account;
+    const { balance, loan, loanPurpose: loanReason, isLoading } = account;
 
     function handleDeposit() {
         if(!depositAmount) return;
-        dispatch(deposit(depositAmount));
+        dispatch(deposit(depositAmount, currency));
         setDepositAmount("");
+        setCurrency("USD");
     }
 
     function handleWithdrawal() {
@@ -40,7 +40,7 @@ export default function AccountOperations() {
 
     return(
         <div>
-            <h2>Your account operatiors</h2>
+            <h2>Your account operations</h2>
 
             <div className="inputs">
                 <div>
@@ -58,7 +58,12 @@ export default function AccountOperations() {
                         <option value="EUR">Euro</option>
                         <option value="GBP">British Pound</option>
                     </select>
-                    <button onClick={handleDeposit}>Deposit {depositAmount}</button>
+                    <button 
+                        onClick={handleDeposit}
+                        disabled={isLoading}
+                    >
+                            {isLoading ? "Converting" : `Deposit ${depositAmount}`}
+                    </button>
                 </div>
 
                 <div>
