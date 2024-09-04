@@ -1,8 +1,5 @@
-# React + Vite
+# Introduction to React-Redux - Bank App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project serves as an introduction to React-Redux by developing a small bank app. Initially, I implemented the traditional React-Redux approach, which involves manually creating and combining reducers in the store. I also utilized action creator functions, providing flexibility for each dispatched action. Additionally, I integrated Redux Thunks, allowing for middleware to handle asynchronous operations between the action creator functions and the store.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Afterward, I transitioned to the modern method using @reduxjs/toolkit, which simplifies many aspects of Redux development. This approach reduces boilerplate, streamlines store configuration, and enhances code readability.
